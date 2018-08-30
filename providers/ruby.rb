@@ -104,6 +104,9 @@ def install_ruby_dependencies
   case definition
   when /^\d\.\d\.\d/, /^rbx-/, /^ree-/
     pkgs = node['ruby_build']['install_pkgs_cruby']
+    pkgs = %w( autoconf bison build-essential libssl-dev libyaml-dev libreadline-dev
+        zlib1g-dev libsqlite3-dev libxml2-dev libxslt1-dev
+        libc6-dev libffi-dev libgdbm5 libgdbm-dev )
   when /^jruby-/
     pkgs = node['ruby_build']['install_pkgs_jruby']
   end
